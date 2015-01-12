@@ -11,6 +11,16 @@ public abstract class ArrayUtils {
 		return array;
 	}
 
+	public static int[] randomArray(int n, int m) {
+		Random r = new Random();
+		int [] array = new int[n];
+
+		for (int i = 0; i < n; i++)
+			array[i] = r.nextInt() % m;
+
+		return array;
+	}
+
 	public static void printArray(int[] a) {
 		if (a.length > 0) {
 			System.out.print(a[0]);

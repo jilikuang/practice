@@ -1,5 +1,5 @@
 MAIN = ArrayTest
-LIB = ArrayUtils
+LIB = ArrayUtils ArraySort
 
 SRC_MAIN = $(addsuffix .java, $(MAIN))
 SRC_LIB = $(addsuffix .java, $(LIB))
