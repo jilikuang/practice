@@ -38,4 +38,37 @@ public abstract class ArraySort {
 			}
 		}
 	}
+
+	public static void mergeSort(int[] a) {
+		int[] wb = new int[a.length];
+		mergeSort(a, wb, 0, a.length);
+	}
+
+	private static void mergeSort(int[] a, int[] wb, int s, int e) {
+		if (s + 1 == e) // a[start] is the only element
+			return;
+
+		int m = s + (e - s) / 2;
+		mergeSort(a, wb, s, m);
+		mergeSort(a, wb, m, e);
+		mergeSortMerge(a, wb, s, m, e);
+	}
+
+	private static void mergeSortMerge(int[] a, int[] wb, int s, int m, int e) {
+		int i = s, j = m, k = 0;
+		/* Select to the working buffer */
+		while (i < m && j < e) {
+			if (a[i] < a[j])
+				wb[k++] = a[i++];
+			else
+				wb[k++] = a[j++];
+		}
+		while (i < m)
+			wb[k++] = a[i++];
+		while (j < e)
+			wb[k++] = a[j++];
+		/* Move back to the main array */
+		for (i = s; i < e; i++)
+			a[i] = wb[i-s];
+	}
 }
