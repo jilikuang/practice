@@ -4,7 +4,7 @@ public class ArrayTest {
 		int[] array = ArrayUtils.randomArray(20, 100);
 
 		ArrayUtils.printArray(array);
-		ArraySort.bubbleSort(array);
+		ArraySort.insertSort(array);
 		ArrayUtils.printArray(array);
 	}
 }
