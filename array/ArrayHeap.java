@@ -5,6 +5,7 @@ public class ArrayHeap {
 	protected int length;
 	protected int height;
 	protected int lengthMax;
+	protected int minmax;
 
 	private void initiate(int n) {
 		n = (n < 0) ? 0 : n;
@@ -31,11 +32,13 @@ public class ArrayHeap {
 
 	public ArrayHeap() {
 		initiate(0);
+		minmax = 0;
 	}
 
 	public ArrayHeap(int n) {
 		initiate(n);
 		randomize();
+		minmax = 0;
 	}
 
 	public ArrayHeap(int[] a) {
@@ -47,6 +50,7 @@ public class ArrayHeap {
 				for (int i = 0; i < length; i++)
 					heap[i] = a[i];
 		}
+		minmax = 0;
 	}
 
 	public void print() {
@@ -78,6 +82,7 @@ public class ArrayHeap {
 		} else {
 			heap[length++] = val;
 		}
+		minmax = 0;
 	}
 
 	private int localHeapifyMin(int i) {
@@ -111,6 +116,13 @@ public class ArrayHeap {
 				while (idx >= 0)
 					idx = localHeapifyMin(idx);
 			}
+		minmax = -1;
+	}
+
+	public boolean hasMin() {
+		if (minmax < 0)
+			return true;
+		return false;
 	}
 
 	private int localHeapifyMax(int i) {
@@ -144,5 +156,12 @@ public class ArrayHeap {
 				while (idx >= 0)
 					idx = localHeapifyMax(idx);
 			}
+		minmax = 1;
+	}
+
+	public boolean hasMax() {
+		if (minmax > 0)
+			return true;
+		return false;
 	}
 }
