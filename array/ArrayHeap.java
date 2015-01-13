@@ -49,4 +49,68 @@ public class ArrayHeap {
 			array[i] = heap[i];
 		return array;
 	}
+
+	private int localHeapifyMin(int i) {
+		int l = 2 * i + 1;
+		int r = 2 * i + 2;
+		if (r < length && heap[r] < heap[i]) {
+			if (heap[r] < heap[l]) {
+				int tmp = heap[i];
+				heap[i] = heap[r];
+				heap[r] = tmp;
+				return r;
+			} else {
+				int tmp = heap[i];
+				heap[i] = heap[l];
+				heap[l] = tmp;
+				return l;
+			}
+		} else if (l < length && heap[l] < heap[i]) {
+			int tmp = heap[i];
+			heap[i] = heap[l];
+			heap[l] = tmp;
+			return l;
+		}
+		return -1;
+	}
+
+	public void heapifyMin() {
+		for (int i = length / 2 - 1; i >= 0; i--) {
+			int idx = i;
+			while (idx >= 0)
+				idx = localHeapifyMin(idx);
+		}
+	}
+
+	private int localHeapifyMax(int i) {
+		int l = 2 * i + 1;
+		int r = 2 * i + 2;
+		if (r < length && heap[r] > heap[i]) {
+			if (heap[r] > heap[l]) {
+				int tmp = heap[i];
+				heap[i] = heap[r];
+				heap[r] = tmp;
+				return r;
+			} else {
+				int tmp = heap[i];
+				heap[i] = heap[l];
+				heap[l] = tmp;
+				return l;
+			}
+		} else if (l < length && heap[l] > heap[i]) {
+			int tmp = heap[i];
+			heap[i] = heap[l];
+			heap[l] = tmp;
+			return l;
+		}
+		return -1;
+	}
+
+	public void heapifyMax() {
+		for (int i = length / 2 - 1; i >= 0; i--) {
+			int idx = i;
+			while (idx >= 0)
+				idx = localHeapifyMax(idx);
+		}
+	}
 }

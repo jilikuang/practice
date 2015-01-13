@@ -4,9 +4,8 @@ public class ArrayTest {
 		int[] array = ArrayUtils.randomArray(20, 100);
 		ArrayHeap heap = new ArrayHeap(array);
 
-		ArrayUtils.printArray(array);
-		ArraySort.mergeSort(array);
-		ArrayUtils.printArray(array);
+		heap.print();
+		heap.heapifyMax();
 		heap.print();
 	}
 }
