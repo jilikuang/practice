@@ -68,6 +68,18 @@ public class ArrayHeap {
 		}
 	}
 
+	public void insert(int val) {
+		if (length == lengthMax) {
+			int[] old = heap;
+			initiate(length+1);
+			for (int i = 0; i < old.length; i++)
+				heap[i] = old[i];
+			heap[old.length] = val;
+		} else {
+			heap[length++] = val;
+		}
+	}
+
 	private int localHeapifyMin(int i) {
 		int l = 2 * i + 1;
 		int r = 2 * i + 2;
