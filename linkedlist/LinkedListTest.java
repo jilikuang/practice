@@ -4,6 +4,7 @@ public class LinkedListTest {
 		ListNode head = ListUtils.randomList(5);
 
 		ListUtils.printList(head);
+		System.out.println(ListUtils.getListLength(head));
 		ListNode mid = ListUtils.getMidNode(head);
 		ListUtils.printList(mid);
 	}

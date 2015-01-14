@@ -46,4 +46,14 @@ public abstract class ListUtils {
 		}
 		return mid;
 	}
+
+	public static int getListLength(ListNode head) {
+		ListNode curr = head;
+		int length = 0;
+		while (curr != null) {
+			length++;
+			curr = curr.next;
+		}
+		return length;
+	}
 }
