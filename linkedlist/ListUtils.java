@@ -37,4 +37,13 @@ public abstract class ListUtils {
 		}
 		return head;
 	}
+
+	public static ListNode getMidNode(ListNode head) {
+		ListNode fast = head, mid = head;
+		while (fast != null && fast.next != null) {
+			fast = fast.next.next;
+			mid = mid.next;
+		}
+		return mid;
+	}
 }
