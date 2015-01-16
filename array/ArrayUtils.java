@@ -29,4 +29,19 @@ public abstract class ArrayUtils {
 			System.out.print("\n");
 		}
 	}
+
+	public static int binarySearch(int[] a, int key) {
+		int l = 0;
+		int r = a.length;
+		while (l < r) {
+			int m = l + (r - l) / 2;
+			if (a[m] == key)
+				return m;
+			else if (a[m] < key)
+				l = m + 1;
+			else
+				r = m;
+		}
+		return -1;
+	}
 }
