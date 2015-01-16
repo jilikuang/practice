@@ -7,7 +7,9 @@ public class ArrayTest {
 		int[] array = ArrayUtils.randomArray(8, 10);
 		ArrayHeap heap = new ArrayHeap(array);
 
+		System.out.println(ArrayUtils.isSorted(array));
 		ArraySort.bubbleSort(array);
+		System.out.println(ArrayUtils.isSorted(array));
 		ArrayUtils.printArray(array);
 		int i = ArrayUtils.binarySearch(array, -9);
 		if (i < 0)
