@@ -23,14 +23,11 @@ public abstract class ArraySort {
 
 	public static void selectSort(int[] a) {
 		for (int i = 0; i < a.length - 1; i++) {
-			int min = a[i];
 			int min_idx = i;
 			/* Find the minimum of the left */
 			for (int j = i + 1; j < a.length; j++)
-				if (min > a[j]) {
-					min = a[j];
+				if (a[min_idx] > a[j])
 					min_idx = j;
-				}
 			if (min_idx > i) {
 				int tmp = a[min_idx];
 				a[min_idx] = a[i];
