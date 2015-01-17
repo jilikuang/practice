@@ -38,16 +38,16 @@ public abstract class ArraySort {
 
 	public static void mergeSort(int[] a) {
 		int[] wb = new int[a.length];
-		mergeSort(a, wb, 0, a.length);
+		mergeSortSplit(a, wb, 0, a.length);
 	}
 
-	private static void mergeSort(int[] a, int[] wb, int s, int e) {
+	private static void mergeSortSplit(int[] a, int[] wb, int s, int e) {
 		if (s + 1 == e) // a[start] is the only element
 			return;
 
 		int m = s + (e - s) / 2;
-		mergeSort(a, wb, s, m);
-		mergeSort(a, wb, m, e);
+		mergeSortSplit(a, wb, s, m);
+		mergeSortSplit(a, wb, m, e);
 		mergeSortMerge(a, wb, s, m, e);
 	}
 
