@@ -68,4 +68,35 @@ public abstract class ArraySort {
 		for (i = s; i < e; i++)
 			a[i] = wb[i-s];
 	}
+
+	public static void quickSort(int[] a) {
+		quickSortSplit(a, 0, a.length);
+	}
+
+	private static void quickSortSplit(int[] a, int s, int e) {
+		if (s == e || s + 1 == e)
+			return;
+
+		int i = s, j = s + 1;
+		while (j < e) {
+			if (a[j] < a[s]) {
+				if (i + 1 == j) { /* There is no > elements */
+					i++;
+				} else {
+					int tmp = a[++i];
+					a[i] = a[j];
+					a[j] = tmp;
+				}
+			}
+			j++;
+		}
+		if (i > s) {
+			int tmp = a[s];
+			a[s] = a[i];
+			a[i] = tmp;
+		}
+
+		quickSortSplit(a, s, i);
+		quickSortSplit(a, i+1, e);
+	}
 }
