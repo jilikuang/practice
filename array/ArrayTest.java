@@ -9,7 +9,7 @@ public class ArrayTest {
 		ArrayUtils.printArray(array);
 		System.out.println(ArrayUtils.isSorted(array));
 
-		ArraySort.quickSort(array);
+		ArraySort.heapSort(array);
 
 		ArrayUtils.printArray(array);
 		System.out.println(ArrayUtils.isSorted(array));

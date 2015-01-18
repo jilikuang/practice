@@ -99,4 +99,35 @@ public abstract class ArraySort {
 		quickSortSplit(a, s, i);
 		quickSortSplit(a, i+1, e);
 	}
+
+	public static void heapSort(int[] a) {
+		/* Heapify the array */
+		for (int i = a.length / 2 - 1; i >= 0; i--)
+			heapSink(a, i, a.length);
+
+		/* Heapsort */
+		for (int i = a.length - 1; i > 0; i--) {
+			int tmp = a[0];
+			a[0] = a[i];
+			a[i] = tmp;
+			heapSink(a, 0, i);
+		}
+	}
+
+	private static void heapSink(int[] a, int k, int e) {
+		while (k < e / 2) {
+			int i = 2 * k + 1;
+			int j = 2 * k + 2;
+			if (j < e && a[j] > a[i])
+				i = j;
+			if (a[k] >= a[i])
+				break;
+
+			int tmp = a[k];
+			a[k] = a[i];
+			a[i] = tmp;
+
+			k = i;
+		}
+	}
 }
