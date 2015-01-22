@@ -51,4 +51,19 @@ public abstract class ArrayUtils {
 		}
 		return -1;
 	}
+
+	public static int rank(int[] a, int key) {
+		int l = 0;
+		int r = a.length;
+		while (l < r) {
+			int m = (l + r) / 2;
+			if (a[m] == key)
+				return m;
+			else if (a[m] < key)
+				l = m +	1;
+			else
+				r = m;
+		}
+		return l;
+	}
 }
