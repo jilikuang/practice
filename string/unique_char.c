@@ -6,6 +6,9 @@ static int unique_characters(char *str) {
 	int i, l = strlen(str);
 	int c, d;
 
+	if (l > 256)
+		return 0;
+
 	for (i = 0; i < l; i++) {
 #if 0
 		c = (int)str[i];
