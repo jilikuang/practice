@@ -1,8 +1,18 @@
 #include <stdio.h>
 #include <string.h>
 
+static void reverse(char *str) {
+	int i, l = strlen(str);
+	char tmp;
+
+	for (i = 0; i < l/2; i++) {
+		tmp = str[i];
+		str[i] = str[l-1-i];
+		str[l-1-i] = tmp;
+	}
+}
+
 int main(int argc, char **argv) {
-	int i, l;
 
 	if (argc < 2) {
 		printf("Need a string input\n");
@@ -11,12 +21,7 @@ int main(int argc, char **argv) {
 
 	printf("The input is: \"%s\"\n", argv[1]);
 
-	l = strlen(argv[1]);
-	for (i = 0; i < l/2; i++) {
-		char tmp = argv[1][i];
-		argv[1][i] = argv[1][l-1-i];
-		argv[1][l-1-i] = tmp;
-	}
+	reverse(argv[1]);
 
 	printf("The reversed: \"%s\"\n", argv[1]);
 
