@@ -24,10 +24,6 @@ static int permutation_check_map(char *s1, char *s2) {
 		char_count[idx]--;
 	}
 
-	for (i = 0; i < 256; i++)
-		if (char_count[idx])
-			return 0;
-
 	return 1;
 }
 
@@ -86,7 +82,7 @@ int main(int argc, char **argv) {
 	printf("The 1st string: %s\n", argv[1]);
 	printf("The 2nd string: %s\n", argv[2]);
 
-	if (permutation_check_sort(argv[1], argv[2]))
+	if (permutation_check_map(argv[1], argv[2]))
 		printf("The two strings are anagrams\n");
 	else
 		printf("The two strings are NOT anagrams\n");
