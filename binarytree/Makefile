@@ -1,5 +1,5 @@
 MAIN = BinaryTreeTest
-LIB = TreeNode
+LIB = TreeNode TreeUtils BinarySearchTree
 
 SRC_MAIN = $(addsuffix .java, $(MAIN))
 SRC_LIB = $(addsuffix .java, $(LIB))
