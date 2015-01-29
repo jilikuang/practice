@@ -3,6 +3,25 @@ import java.util.Stack;
 public class BinarySearchTree {
 	TreeNode root;
 
+	public int size() {
+		// To do
+		return 0;
+	}
+
+	public int height() {
+		// To do
+		return 0;
+	}
+
+	public boolean isEmpty() {
+		return (root == null);
+	}
+
+	public boolean contains() {
+		// To do
+		return false;
+	}
+
 	public void insert(int value) {
 		if (root == null) {
 			root = new TreeNode(value);
@@ -50,6 +69,45 @@ public class BinarySearchTree {
 		return curr;
 	}
 
+	public TreeNode delete(int value) {
+		// To do
+		return null;
+	}
+
+	public int min() {
+		TreeNode curr = root;
+		while (curr.left != null)
+			curr = curr.left;
+		return curr.val;
+	}
+
+	public int max() {
+		TreeNode curr = root;
+		while (curr.right != null)
+			curr = curr.right;
+		return curr.val;
+	}
+
+	public int floor(int value) {
+		// To do
+		return 0;
+	}
+
+	public int ceiling(int value) {
+		// To do
+		return 0;
+	}
+
+	public int rank(int value) {
+		// To do
+		return 0;
+	}
+
+	public TreeNode select(int value) {
+		// To do
+		return null;
+	}
+
 	public void printInOrder() {
 		TreeNode curr = root;
 		Stack<TreeNode> stack = new Stack<>();
@@ -64,5 +122,7 @@ public class BinarySearchTree {
 				curr = curr.right;
 			}
 		}
+
+		System.out.println();
 	}
 }
