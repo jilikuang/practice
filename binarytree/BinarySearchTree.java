@@ -35,17 +35,15 @@ public class BinarySearchTree {
 		while (curr != null) {
 			if (value < curr.val)
 				if (curr.left == null) {
-					TreeNode tmp = new TreeNode(value);
-					tmp.left = curr.left;
-					curr.left = tmp;
+					curr.left = new TreeNode(value);
+					break;
 				} else {
 					curr = curr.left;
 				}
 			else if (value > curr.val)
 				if (curr.right == null) {
-					TreeNode tmp = new TreeNode(value);
-					tmp.right = curr.right;
-					curr.right = tmp;
+					curr.right = new TreeNode(value);
+					break;
 				} else {
 					curr = curr.right;
 				}
