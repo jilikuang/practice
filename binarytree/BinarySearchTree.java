@@ -1,4 +1,6 @@
 import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
 
 public class BinarySearchTree {
 	TreeNode root;
@@ -124,5 +126,35 @@ public class BinarySearchTree {
 		}
 
 		System.out.println();
+	}
+
+	public void printInLevel() {
+		if (root == null)
+			return;
+
+		System.out.println(root.val);
+
+		List<TreeNode> list = new ArrayList<>();
+		list.add(root);
+
+		while (!list.isEmpty()) {
+			List<TreeNode> next = new ArrayList<>();
+			for (TreeNode t : list) {
+				if (t.left != null) {
+					System.out.print(t.left.val + ", ");
+					next.add(t.left);
+				} else {
+					System.out.print("#, ");
+				}
+				if (t.right != null) {
+					System.out.print(t.right.val + ", ");
+					next.add(t.right);
+				} else {
+					System.out.print("#, ");
+				}
+			}
+			System.out.println();
+			list = next;
+		}
 	}
 }

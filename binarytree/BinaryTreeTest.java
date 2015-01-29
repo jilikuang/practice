@@ -6,5 +6,6 @@ public class BinaryTreeTest {
 		bst.printInOrder();
 		System.out.println("Max: " + bst.max());
 		System.out.println("Min: " + bst.min());
+		bst.printInLevel();
 	}
 }
