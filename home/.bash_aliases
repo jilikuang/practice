@@ -1,0 +1,6 @@
+alias rm='rm -i'
+alias mv='mv -i'
+alias cp='cp -i'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias h='history'
