@@ -22,6 +22,16 @@ struct TreeNode {
  * Functions
  */
 
+void array_print_int(int *nums, int size)
+{
+	int i;
+
+	printf("[%d", nums[0]);
+	for (i = 1; i < size; ++i)
+		printf(", %d", nums[i]);
+	printf("]\n");
+}
+
 void list_append(struct ListNode **p_head, int val)
 {
 	if (!p_head) {
