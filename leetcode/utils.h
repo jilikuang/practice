@@ -4,6 +4,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#define ALLOC_ARRAY(var, type, size)\
+	type *var = malloc((size) * sizeof(type))
+
 struct ListNode {
 	int val;
 	struct ListNode *next;
