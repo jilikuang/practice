@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #define ALLOC_ARRAY(var, type, size)\
 	type *var = malloc((size) * sizeof(type))
