@@ -93,4 +93,31 @@ void list_print(struct ListNode *head)
 	printf("]\n");
 }
 
+void tree_append(struct TreeNode **p_node, int val)
+{
+	if (!p_node) {
+		printf("Invalid tree node pointer\n");
+		return;
+	}
+
+	if (*p_node) {
+		printf("Input node must be NULL\n");
+	} else {
+		*p_node = malloc(sizeof(struct TreeNode));
+		(*p_node)->val = val;
+		(*p_node)->left = NULL;
+		(*p_node)->right = NULL;
+	}
+}
+
+void tree_release(struct TreeNode *root)
+{
+	if (root == NULL)
+		return;
+
+	tree_release(root->left);
+	tree_release(root->right);
+	free(root);
+}
+
 #endif	// __UTILS__
