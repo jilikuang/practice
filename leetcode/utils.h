@@ -56,6 +56,20 @@ void list_append(struct ListNode **p_head, int val)
 	}
 }
 
+struct ListNode * list_create(char *str)
+{
+	struct ListNode *head = NULL;
+	char *token, delim[3] = ", ";
+
+	token = strtok(str, delim);
+	while (token) {
+		list_append(&head, strtol(token, NULL, 0));
+		token = strtok(NULL, delim);
+	}
+
+	return head;
+}
+
 void list_release(struct ListNode *head)
 {
 	while (head) {
