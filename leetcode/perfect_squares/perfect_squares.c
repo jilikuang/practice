@@ -3,6 +3,7 @@
 static int numSquares(int num)
 {
 	ALLOC_ARRAY(mins, int, num + 1);
+	int ans;
 	int i, j;
 
 	// Initialization
@@ -22,7 +23,10 @@ static int numSquares(int num)
 
 	array_print_int(mins, num + 1);
 
-	return mins[num];
+	ans = mins[num];
+	free(mins);
+
+	return ans;
 }
 
 int main(int argc, char **argv)
